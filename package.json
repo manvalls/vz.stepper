@@ -1,6 +1,6 @@
 {
   "name": "vz.stepper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Asynchronous workflow helper",
   "main": "main.js",
   "dependencies": {
