@@ -1,6 +1,6 @@
 # vz Stepper
 
-[![NPM](https://nodei.co/npm/vz.collection.png?downloads=true)](https://nodei.co/npm/vz.collection/)
+[![NPM](https://nodei.co/npm/vz.stepper.png?downloads=true)](https://nodei.co/npm/vz.stepper/)
 
 ## Sample usage:
 
