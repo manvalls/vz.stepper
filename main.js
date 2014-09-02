@@ -10,12 +10,20 @@ Stepper = module.exports = function(cb){
 
 function caller(){
   step.of(this.that).set(this.step);
-  (this.cb || callback.of(this.that).get()).apply(this.that,arguments);
+  (this.cb || callback.of(this.that).get()).call(this.that,arguments,this.vars);
 }
 
 Object.defineProperties(Stepper.prototype,{
-  goTo: {value: function(step,cb){
-    return caller.bind({that: this,step: step,cb: cb});
+  goTo: {value: function(step,cb,vars){
+    
+    if(!cb.apply){
+      vars = cb;
+      cb = null;
+    }
+    
+    vars = vars || {};
+    
+    return caller.bind({that: this,step: step,cb: cb,vars: vars});
   }},
   step: {
     get: function(){ return step.of(this).value; },
