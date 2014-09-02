@@ -44,7 +44,7 @@ var Stepper = require('vz.stepper'),
 
 ### Stepper object
 
-#### Constructor(callback)
+#### Constructor([callback])
 
 Creates and initializes a stepper with *callback* as its internal callback.
 
@@ -52,6 +52,6 @@ Creates and initializes a stepper with *callback* as its internal callback.
 
 The current step of the stepper
 
-#### Stepper.goTo(step)
+#### Stepper.goTo(step[,callback])
 
-Returns a function which executes the internal callback of the stepper, with the stepper as the thisArg, seting the current step to *step*.
+Returns a function which executes *callback* or the internal callback of the stepper, with the stepper as the thisArg, seting the current step to *step*.
