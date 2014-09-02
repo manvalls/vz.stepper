@@ -15,10 +15,12 @@ function caller(){
 
 Object.defineProperties(Stepper.prototype,{
   goTo: {value: function(step,cb,vars){
+    var temp;
     
     if(!cb.apply){
+      temp = vars;
       vars = cb;
-      cb = null;
+      cb = temp;
     }
     
     vars = vars || {};
