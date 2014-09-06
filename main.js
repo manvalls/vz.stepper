@@ -2,7 +2,9 @@ var Stepper,
     Property = require('vz.property'),
     c = require('vz.constants'),
     callback = new Property(),
-    step = new Property();
+    step = new Property(),
+    
+    USE_BIND = false;
 
 Stepper = module.exports = function(cb){
   callback.of(this).set(cb);
@@ -15,7 +17,7 @@ function caller(){
 
 Object.defineProperties(Stepper.prototype,{
   goTo: {value: function(step,cb,vars){
-    var temp;
+    var temp,that = this;
     
     if(!cb.apply){
       temp = vars;
@@ -25,7 +27,10 @@ Object.defineProperties(Stepper.prototype,{
     
     vars = vars || {};
     
-    return caller.bind({that: this,step: step,cb: cb,vars: vars});
+    if(USE_BIND) return caller.bind({that: this,step: step,cb: cb,vars: vars});
+    else return function(){
+      return caller.apply({that: that,step: step,cb: cb,vars: vars},arguments);
+    };
   }},
   step: {
     get: function(){ return step.of(this).value; },
