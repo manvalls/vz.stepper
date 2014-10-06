@@ -1,5 +1,7 @@
 # vz Stepper
 
+**DEPRECATED in favour of [vz.walk](https://www.npmjs.org/package/vz.walk "vz.walk")**
+
 [![NPM](https://nodei.co/npm/vz.stepper.png?downloads=true)](https://nodei.co/npm/vz.stepper/)
 
 No piece of software is ever completed, feel free to contribute and be humble
